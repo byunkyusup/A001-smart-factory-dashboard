@@ -1,0 +1,21 @@
+.prod { display: flex; flex-direction: column; gap: 1rem; }
+.prod__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--hairline);
+}
+.prod__metric { display: flex; flex-direction: column; gap: 0.25rem; }
+.prod__metric-val { font-size: 1.45rem; font-weight: 600; color: var(--text-hi); line-height: 1; display: flex; align-items: baseline; gap: 0.25rem; }
+.prod__metric.is-big .prod__metric-val { font-size: var(--text-metric); }
+.prod__metric--ok .prod__metric-val { color: var(--ok); }
+.prod__metric--warn .prod__metric-val { color: var(--warn); }
+.prod__metric--crit .prod__metric-val { color: var(--crit); }
+.prod__metric-unit { font-size: 0.72rem; color: var(--text-lo); font-weight: 500; }
+.prod__axis { display: flex; gap: 1.1rem; align-items: center; }
+.prod__axis-miss { color: oklch(70% 0.12 70); }
+
+@media (max-width: 560px) {
+  .prod__stats { grid-template-columns: repeat(2, 1fr); }
+}

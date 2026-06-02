@@ -1,0 +1,68 @@
+/* ---------- BarTrend ---------- */
+.bartrend {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 0.35rem;
+  height: 190px;
+  align-items: end;
+}
+.bartrend__col { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; height: 100%; }
+.bartrend__track { position: relative; width: 100%; flex: 1; display: flex; align-items: end; }
+.bartrend__bar {
+  width: 100%;
+  border-radius: 4px 4px 2px 2px;
+  transition: height 700ms var(--ease-out-expo);
+  min-height: 2px;
+}
+.bartrend__bar--hit { background: linear-gradient(180deg, var(--ok), oklch(60% 0.15 150)); }
+.bartrend__bar--miss { background: linear-gradient(180deg, var(--warn), oklch(62% 0.14 60)); }
+.bartrend__bar--future { background: var(--surface-2); }
+.bartrend__bar.is-current { box-shadow: 0 0 12px var(--accent-glow); outline: 1px solid var(--accent-dim); }
+.bartrend__target {
+  position: absolute;
+  left: -1px; right: -1px;
+  height: 0;
+  border-top: 1.5px dashed var(--hairline-strong);
+  z-index: 2;
+}
+.bartrend__hour { font-size: 0.64rem; color: var(--text-faint); font-variant-numeric: tabular-nums; }
+.bartrend__hour.is-current { color: var(--accent); font-weight: 700; }
+
+/* ---------- Sensor meter ---------- */
+.sensor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+  background: var(--surface-1);
+  transition: border-color var(--dur-normal);
+}
+.sensor--warn { border-color: oklch(82% 0.16 78 / 0.45); }
+.sensor--crit { border-color: oklch(66% 0.21 22 / 0.6); background: linear-gradient(180deg, oklch(28% 0.06 22 / 0.4), var(--surface-1)); animation: critBreathe 2s ease-in-out infinite; }
+@keyframes critBreathe {
+  0%, 100% { box-shadow: 0 0 0 0 transparent; }
+  50% { box-shadow: 0 0 16px -2px var(--crit-glow); }
+}
+.sensor__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; }
+.sensor__id { display: flex; flex-direction: column; gap: 0.15rem; }
+.sensor__name { font-size: 0.82rem; font-weight: 600; color: var(--text-hi); }
+.sensor__line { font-size: 0.58rem; }
+.sensor__read { font-size: 1.25rem; font-weight: 600; color: var(--text-hi); line-height: 1; }
+.sensor--warn .sensor__read { color: var(--warn); }
+.sensor--crit .sensor__read { color: var(--crit); }
+.sensor__unit { font-size: 0.7rem; color: var(--text-lo); margin-left: 0.15rem; }
+.sensor__bar {
+  position: relative;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--surface-raised);
+  overflow: visible;
+}
+.sensor__bar-fill { position: absolute; inset: 0 auto 0 0; border-radius: 3px; transition: width var(--dur-normal) var(--ease-out-expo); }
+.sensor__mark { position: absolute; top: -2px; width: 2px; height: 10px; border-radius: 1px; }
+.sensor__mark--warn { background: var(--warn); }
+.sensor__mark--crit { background: var(--crit); }
+.sensor__spark { line-height: 0; opacity: 0.9; }

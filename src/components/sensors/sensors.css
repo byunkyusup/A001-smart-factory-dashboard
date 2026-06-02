@@ -1,0 +1,15 @@
+.sensors { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+.sensor-alerts { display: inline-flex; gap: 0.35rem; }
+.sensor-alerts__badge {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+.sensor-alerts__badge--crit { color: var(--crit); border-color: oklch(66% 0.21 22 / 0.5); background: oklch(40% 0.12 22 / 0.25); }
+.sensor-alerts__badge--warn { color: var(--warn); border-color: oklch(82% 0.16 78 / 0.4); background: oklch(45% 0.1 78 / 0.2); }
+.sensor-alerts__badge--ok { color: var(--ok); border-color: oklch(78% 0.17 150 / 0.4); background: oklch(40% 0.1 150 / 0.18); }
+
+@media (max-width: 600px) { .sensors { grid-template-columns: 1fr; } }

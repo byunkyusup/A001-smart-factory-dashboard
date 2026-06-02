@@ -1,0 +1,29 @@
+.eq { display: grid; grid-template-columns: 1.1fr 1fr; gap: 1.2rem; }
+.eq__energy { display: flex; flex-direction: column; gap: 0.9rem; }
+.eq__power { display: flex; flex-direction: column; gap: 0.4rem; }
+.eq__power-val { font-size: var(--text-metric-lg); font-weight: 600; color: var(--accent); line-height: 1; display: flex; align-items: baseline; gap: 0.3rem; }
+.eq__power-unit { font-size: 1rem; color: var(--text-lo); font-weight: 500; }
+.eq__energy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.55rem; }
+.eq__mini { display: flex; flex-direction: column; gap: 0.2rem; padding: 0.6rem 0.7rem; background: var(--surface-1); border: 1px solid var(--hairline); border-radius: var(--radius-sm); }
+.eq__mini-val { font-size: 1.2rem; font-weight: 600; color: var(--text-hi); line-height: 1; display: flex; align-items: baseline; gap: 0.2rem; }
+.eq__mini--ok .eq__mini-val { color: var(--ok); }
+.eq__mini--warn .eq__mini-val { color: var(--warn); }
+.eq__mini-unit { font-size: 0.68rem; color: var(--text-lo); font-weight: 500; }
+
+.eq__quality { display: flex; flex-direction: column; gap: 0.7rem; border-left: 1px solid var(--hairline); padding-left: 1.2rem; }
+.eq__quality-head { display: flex; justify-content: space-between; align-items: baseline; }
+.eq__defect-total { font-size: 1.1rem; font-weight: 600; color: var(--text-hi); }
+.eq__defects { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.55rem; }
+.eq__defect { display: grid; grid-template-columns: minmax(72px, auto) 1fr auto; gap: 0.6rem; align-items: center; }
+.eq__defect-label { font-size: 0.78rem; color: var(--text-mid); white-space: nowrap; }
+.eq__defect-bar { height: 8px; background: var(--surface-raised); border-radius: 4px; overflow: hidden; }
+.eq__defect-fill { display: block; height: 100%; border-radius: 4px; transition: width var(--dur-normal) var(--ease-out-expo); }
+.eq__defect-fill--crit { background: linear-gradient(90deg, oklch(50% 0.18 22), var(--crit)); }
+.eq__defect-fill--warn { background: linear-gradient(90deg, oklch(60% 0.12 78), var(--warn)); }
+.eq__defect-fill--info { background: linear-gradient(90deg, oklch(50% 0.1 255), var(--info)); }
+.eq__defect-count { font-size: 0.85rem; font-weight: 600; color: var(--text-hi); min-width: 22px; text-align: right; }
+
+@media (max-width: 760px) {
+  .eq { grid-template-columns: 1fr; }
+  .eq__quality { border-left: none; padding-left: 0; border-top: 1px solid var(--hairline); padding-top: 0.9rem; }
+}
