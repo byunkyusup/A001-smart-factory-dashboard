@@ -124,3 +124,11 @@ src/
 | `npm run dev` | 개발 서버 (http://localhost:5180) |
 | `npm run build` | 타입 체크 + 프로덕션 빌드 |
 | `npm run preview` | 빌드 결과 로컬 서빙 |
+
+## 🚀 배포 (Vercel)
+
+GitHub 레포가 Vercel에 연동되어 있습니다.
+
+- `main` push → **Production** 자동 배포
+- PR 생성 → **Preview** 배포 자동 생성 (PR에 미리보기 URL 코멘트)
+- 빌드/헤더 설정은 레포 루트 `vercel.json`에서 관리 (Vite 프리셋 · CSP · 보안 헤더 · 자산 캐싱)
