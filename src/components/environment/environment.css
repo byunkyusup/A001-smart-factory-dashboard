@@ -1,0 +1,48 @@
+.env { display: flex; flex-direction: column; gap: 0.9rem; }
+
+.env__meta { display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
+.env__loc { font-size: 0.82rem; color: var(--text-mid); font-weight: 600; }
+.env__source { font-size: 0.68rem; color: var(--text-faint); }
+.env__source a { color: var(--text-lo); text-decoration: none; border-bottom: 1px dotted var(--hairline-strong); }
+.env__source a:hover { color: var(--accent); }
+
+/* status badge */
+.env__badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: var(--text-label); font-weight: 700; letter-spacing: 0.06em;
+  padding: 0.25rem 0.6rem; border-radius: 999px;
+  border: 1px solid var(--hairline); color: var(--text-lo);
+}
+.env__badge-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.env__badge--live { color: var(--ok); border-color: var(--ok-glow); }
+.env__badge--live .env__badge-dot { box-shadow: 0 0 8px var(--ok); animation: pulse 1.6s ease-in-out infinite; }
+.env__badge--loading { color: var(--text-lo); }
+.env__badge--error { color: var(--warn); border-color: var(--warn-glow); }
+
+/* hero temperature */
+.env__hero { display: flex; align-items: center; gap: 1.1rem; }
+.env__temp {
+  font-size: var(--text-metric-lg); font-weight: 600; line-height: 1;
+  color: var(--ok); display: flex; align-items: baseline; gap: 0.2rem;
+}
+.env__temp-unit { font-size: 1.1rem; color: var(--text-lo); font-weight: 500; }
+.env__cond { display: flex; flex-direction: column; gap: 0.2rem; }
+.env__cond-main { font-size: 1.05rem; font-weight: 650; color: var(--text-hi); }
+.env__cond-sub { font-size: 0.72rem; color: var(--text-lo); }
+
+/* metric tiles */
+.env__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.55rem; }
+.env__metric {
+  display: flex; flex-direction: column; gap: 0.25rem;
+  padding: 0.6rem 0.7rem; background: var(--surface-1);
+  border: 1px solid var(--hairline); border-radius: var(--radius-sm);
+}
+.env__metric-val { font-size: 1.2rem; font-weight: 600; color: var(--text-hi); line-height: 1; display: flex; align-items: baseline; gap: 0.2rem; }
+.env__metric-unit { font-size: 0.66rem; color: var(--text-lo); font-weight: 500; }
+
+.env__fallback { font-size: 0.82rem; color: var(--text-lo); padding: 1.2rem 0; text-align: center; }
+.env__fallback--error { color: var(--warn); }
+
+@media (max-width: 760px) {
+  .env__grid { grid-template-columns: repeat(2, 1fr); }
+}

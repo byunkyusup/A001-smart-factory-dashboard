@@ -129,6 +129,12 @@ src/
 
 GitHub 레포가 Vercel에 연동되어 있습니다.
 
+**🔗 배포 URL: https://a001-smart-factory-dashboard.vercel.app** — 위 주소로 접속하면 배포된 대시보드를 바로 확인할 수 있습니다.
+
+**데이터 소스**
+- **설비 KPI · 센서 · 생산 · 에너지**: 브라우저 내 시뮬레이션 (실제 공장 OT/MES 데이터는 비공개 → 데모용 모의 데이터)
+- **공장 외기 모니터링**: [Open-Meteo](https://open-meteo.com) **실측 데이터** (API 키 불필요, 60초 주기 폴링). 부지 좌표는 `src/lib/openMeteo.ts`의 `SITE_LOCATION`에서 변경
+
 - `main` push → **Production** 자동 배포
 - PR 생성 → **Preview** 배포 자동 생성 (PR에 미리보기 URL 코멘트)
 - 빌드/헤더 설정은 레포 루트 `vercel.json`에서 관리 (Vite 프리셋 · CSP · 보안 헤더 · 자산 캐싱)

@@ -4,6 +4,7 @@ import { OeePanel } from './components/oee/OeePanel';
 import { ProductionPanel } from './components/production/ProductionPanel';
 import { SensorPanel } from './components/sensors/SensorPanel';
 import { EnergyQualityPanel } from './components/energy/EnergyQualityPanel';
+import { SiteEnvironmentPanel } from './components/environment/SiteEnvironmentPanel';
 import type { ProductionLine } from './lib/types';
 import './components/layout/shell.css';
 
@@ -38,10 +39,14 @@ export default function App() {
             yieldRate={aggregateYield(state.lines)}
           />
         </div>
+        <div className="grid__wide">
+          <SiteEnvironmentPanel />
+        </div>
       </main>
 
       <footer className="footer-note">
-        시뮬레이션 데이터 · {state.tick} ticks · 1.5초 주기 갱신 · 실제 PLC/SCADA 연동 시 데이터 소스만 교체
+        설비 KPI·센서·생산 데이터는 시뮬레이션 ({state.tick} ticks · 1.5초 주기, 실제 PLC/SCADA 연동 시 소스만 교체) ·
+        부지 외기는 Open-Meteo 실측 데이터
       </footer>
     </div>
   );
